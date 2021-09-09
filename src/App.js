@@ -43,22 +43,25 @@ class App extends React.Component {
   };
 
   indiceDeHistoria = () => {
-    for (let index = 0; index < this.state.cuento.length; index++) {
-      const elemento = this.state.cuento[index];
-      if (elemento.id === `${this.state.historia}${this.state.opcion}`) {
+    const estado = this.state;
+    for (let index = 0; index < estado.cuento.length; index++) {
+      const elemento = estado.cuento[index];
+      if (elemento.id === `${estado.historia}${estado.opcion}`) {
         return index;
       }
     }
   };
 
   render() {
+    const cuento = this.state.cuento;
+    const indice = this.indiceDeHistoria;
     return (
       <div className="layout">
-        <h1 className="historia">{this.state.cuento[this.indiceDeHistoria()].historia}</h1>
+        <h1 className="historia">{cuento[indice()].historia}</h1>
         <Opciones
           seleccionUsuario={this.seleccionUsuario}
-          opcionA={this.state.cuento[this.indiceDeHistoria()].opciones.a}
-          opcionB={this.state.cuento[this.indiceDeHistoria()].opciones.b}
+          opcionA={cuento[indice()].opciones.a}
+          opcionB={cuento[indice()].opciones.b}
         />
         <Recordatorio
           seleccionAnterior={this.state.opcion.toUpperCase()}
@@ -66,7 +69,7 @@ class App extends React.Component {
             (opcion, index) => (
               <li key={index}>{opcion}</li>
             ),
-            this.state.cuento[this.indiceDeHistoria()].id
+            cuento[indice()].id
           )}
         />
       </div>
