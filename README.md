@@ -1,6 +1,6 @@
 # Elije tu propia aventura
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CodeSandbox link: https://codesandbox.io/s/infallible-heisenberg-s9vy5
 
 ## Examen parcial de Frontend III CTD
 
